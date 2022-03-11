@@ -7,6 +7,7 @@ interface Options {
      * 宽松模式仅检查定义了的组合键，未定义的组合键不做检查。如默认下的 ⌘C 不会响应 ⌥⌘C，但宽松模式会
      */
     loose?: boolean;
+    includeFormField?: boolean;
     repeat?: boolean;
     ctrlKey?: boolean;
     shiftKey?: boolean;
@@ -72,12 +73,13 @@ const isKeyMatched = (e: KeyboardEvent, options: Options) => {
 
 /**
  * 判断元素是否为表单元素
- *
  * @ref https://github.com/github/hotkey/blob/main/src/utils.ts#L1
- * @param element
- * @returns
  */
-const isFormField = (element: Node) => {
+// eslint-disable-next-line complexity
+const isFormField = (element: Node, options: Options) => {
+    if (options.includeFormField) {
+        return false;
+    }
     if (!(element instanceof HTMLElement)) {
         return false;
     }
@@ -94,7 +96,7 @@ const isFormField = (element: Node) => {
 
 const isMatched = (e: KeyboardEvent, options: Options) => {
     return (
-        !isFormField(e.target as HTMLElement)
+        !isFormField(e.target as HTMLElement, options)
         && isKeyMatched(e, options)
         && isComposingMatched(e, options)
         && isRepeatMatched(e, options)
