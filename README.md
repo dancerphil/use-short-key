@@ -36,4 +36,4 @@ const Component = () => {
 
 ## Example
 
-[Online Example](https://codesandbox.io/s/usehotkey-k83fb)
+[Online Example](https://k83fb.csb.app)
