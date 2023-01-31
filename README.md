@@ -5,7 +5,7 @@
 [![codecov](https://img.shields.io/codecov/c/gh/dancerphil/use-short-key)](https://codecov.io/gh/dancerphil/use-short-key)
 [![MIT License](https://img.shields.io/npm/l/use-short-key.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 
-`use-short-key` helps register short keys for your application.
+`use-short-key` helps register short keys for your application. It has almost same API as [KeyboardEvent](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
 
 English | [中文](https://github.com/dancerphil/use-short-key/blob/master/docs/README-zh_CN.md)
 

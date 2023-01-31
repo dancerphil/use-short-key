@@ -5,7 +5,7 @@
 [![codecov](https://img.shields.io/codecov/c/gh/dancerphil/use-short-key)](https://codecov.io/gh/dancerphil/use-short-key)
 [![MIT License](https://img.shields.io/npm/l/use-short-key.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 
-`use-short-key` 可以帮助你注册快捷键。
+`use-short-key` 可以帮助你注册快捷键。它的 API 和 [KeyboardEvent](https://developer.mozilla.org/zh-CN/docs/Web/API/KeyboardEvent) 几乎一致。
 
 [English](https://github.com/dancerphil/use-short-key/blob/master/README.md) | 中文
 
