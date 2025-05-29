@@ -1,3 +1,5 @@
+/* eslint-disable max-lines */
+import {describe, test, expect} from 'vitest';
 import {fireEvent} from '@testing-library/react';
 import {renderHook} from '@testing-library/react-hooks';
 import {useShortKey} from '..';

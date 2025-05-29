@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import {useEffect, useRef} from 'react';
 
 type PickedKeyboardEvent = Pick<KeyboardEvent, 'code' | 'key' | 'metaKey' | 'ctrlKey' | 'altKey' | 'shiftKey' | 'repeat'>;
@@ -50,7 +51,7 @@ const isComposingMatched = (e: KeyboardEvent, options: Options) => {
     }
     // loose: only check when options.key is defined
     const keys = composingKeys.filter(
-        key => options[key] !== undefined
+        key => options[key] !== undefined,
     );
 
     for (const key of keys) {
@@ -114,11 +115,11 @@ interface OptionRef {
 
 const createKeyHook = () => {
     const optionRefList = new Set<OptionRef>();
-    const onDocumentKeypress: KeyboardCallback = e => {
+    const onDocumentKeypress: KeyboardCallback = (e) => {
         // 是否需要一个参数来定义是否需要 prevent
         // e.preventDefault();
         const effectList: KeyboardCallback[] = [];
-        optionRefList.forEach(optionRef => {
+        optionRefList.forEach((optionRef) => {
             const {keypress} = optionRef.current;
             if (!keypress) {
                 return;
@@ -129,9 +130,9 @@ const createKeyHook = () => {
         });
         effectList.forEach(keydown => keydown(e));
     };
-    const onDocumentKeydown: KeyboardCallback = e => {
+    const onDocumentKeydown: KeyboardCallback = (e) => {
         const effectList: KeyboardCallback[] = [];
-        optionRefList.forEach(optionRef => {
+        optionRefList.forEach((optionRef) => {
             const {keydown} = optionRef.current;
             if (!keydown) {
                 return;
@@ -144,7 +145,7 @@ const createKeyHook = () => {
     };
     const onDocumentKeyup = (e: KeyboardEvent) => {
         const effectList: KeyboardCallback[] = [];
-        optionRefList.forEach(optionRef => {
+        optionRefList.forEach((optionRef) => {
             const {keyup} = optionRef.current;
             if (!keyup) {
                 return;
@@ -172,7 +173,7 @@ const createKeyHook = () => {
                     optionRefList.delete(optionsRef);
                 };
             },
-            []
+            [],
         );
     };
     document.addEventListener('keypress', onDocumentKeypress);
